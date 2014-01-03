@@ -1,0 +1,10 @@
+<apex:page standardController="Case" >
+
+    <script type="text/javascript">
+    {
+        window.alert{"This is an alert");
+    }
+    
+    </script>
+
+</apex:page>

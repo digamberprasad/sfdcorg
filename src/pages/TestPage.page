@@ -1,0 +1,16 @@
+<apex:page controller="Controller">
+      <apex:form >
+                 <apex:pageblock title="Account info">
+                             Account Name: <apex:inputtext value="{!acName}"/>
+                                    <apex:pageblockSection >
+                                           <apex:commandButton value="Search" action="{!search}"/>
+                                                  <apex:outputPanel >
+                                                          <apex:pageblocktable value="{!acc}" var="a">
+                                                           <apex:column value="{!a.Name}"/>
+                                                      <apex:column value="{!a.phone}"/>
+                                               </apex:pageblocktable>
+                                          </apex:outputPanel>
+                                 </apex:pageblockSection>
+                        </apex:pageblock>
+                  </apex:form>
+</apex:page>

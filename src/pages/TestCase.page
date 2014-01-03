@@ -1,0 +1,9 @@
+<apex:page controller="CaseList2Con">
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!cases}" var="c">
+            <apex:column value="{!c.CaseNumber}"/>
+            <apex:column value="{!c.CreatedDate}"/>
+            <apex:column value="{!c.Test_URL__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

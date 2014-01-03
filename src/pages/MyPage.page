@@ -1,0 +1,9 @@
+<apex:page controller="MyController" tabStyle="Account" readonly="true">
+	<P>Total Account:-->{!totalAccount}</P>
+	<apex:dataTable value="{!accounts}" var="account">
+		<apex:column >
+			<apex:outputField value="{!account.Name}">
+			</apex:outputField>
+		</apex:column>
+	</apex:dataTable>
+</apex:page>

@@ -1,0 +1,36 @@
+<apex:page standardController="Contact" extensions="contactExtension" standardStylesheets="true">
+    <apex:pagemessages />
+    <apex:sectionHeader title="Test für Trigger Quotes " subtitle="{!Contact.Name}" help="/help/doc/user_ed.jsp?loc=help"> </apex:sectionHeader>
+    <apex:form >
+        <apex:pageBlock mode="edit">
+            <apex:pageBlockSection title="Accounts" >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Account Name" for="acc" />
+                    <apex:selectList id="acc" value="{!optionacc}" size="1" title="Account">
+                        <apex:selectOptions value="{!accts}"/>
+                        <apex:actionSupport event="onchange" action="{!selectionAcc}" rerender="idInformation"/>  
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                        <apex:selectList value="{!optioncon}" size="1" title="Account" >
+                            <apex:selectOptions value="{!conts}" ></apex:selectOptions>
+                        </apex:selectList>
+                </apex:pageBlockSectionItem>                   
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Information" id="idInformation">
+                <apex:dataTable value="{!listOpportunity}" var="item" >
+                    <apex:column >
+                        <apex:facet name="header">{!$ObjectType.Opportunity.fields.Name.label}</apex:facet>
+                        <apex:inputfield value="{!item.Name} "></apex:inputfield>
+                    </apex:column><apex:column >    
+                        <apex:facet name="header">{!$ObjectType.Opportunity.fields.StageName.label}</apex:facet>                        
+                        <apex:inputfield value="{!item.StageName}"></apex:inputfield>
+                    </apex:column><apex:column >   
+                        <apex:facet name="header">{!$ObjectType.Opportunity.fields.Probability .label}</apex:facet>                         
+                        <apex:inputfield value="{!item.Probability }"></apex:inputfield>
+                    </apex:column>
+                </apex:dataTable>                            
+            </apex:pageBlockSection>  
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,59 @@
+<apex:page standardController="Lead" tabStyle="Lead" showHeader="true" sidebar="true">
+
+    <apex:form >
+
+        <apex:sectionHeader title="Lead Edit" subtitle="{!if(Lead.Id==null,'New Lead',Lead.Name)}">
+
+            <apex:pageBlock mode="maindetail" id="myLeadInstructions" title="Lead Instructions">
+            
+                I'll put my Lead Rules information here in standard HTML.
+
+            </apex:pageBlock>
+
+            <apex:pageBlock mode="edit" id="leadEditBlock" title="Lead Edit">
+
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!save}" value="Save"></apex:commandButton>
+                    <apex:commandButton action="{!cancel}" value="Cancel"></apex:commandButton>
+                </apex:pageBlockButtons>
+
+                <apex:pageMessages ></apex:pageMessages>
+
+                <apex:pageBlockSection id="leadInfoBlock" title="Lead Information">
+
+                    <apex:inputField value="{!Lead.OwnerID}"></apex:inputField>
+                    <apex:inputField value="{!Lead.Phone}"></apex:inputField>
+
+                    <apex:pageBlockSectionItem >
+
+                        <apex:outputLabel value="{!$ObjectType.Lead.Fields.FirstName.label}"></apex:outputLabel>
+
+                        <apex:outputPanel >
+
+                            <apex:inputField value="{!Lead.Salutation}"></apex:inputField>
+                            <apex:inputField value="{!Lead.FirstName}"></apex:inputField>
+
+                        </apex:outputPanel>
+
+                    </apex:pageBlockSectionItem>
+
+                    <apex:inputField value="{!Lead.MobilePhone}"></apex:inputField>
+                    <apex:inputField value="{!Lead.LastName}"></apex:inputField>
+                    <apex:inputField value="{!Lead.Company}"></apex:inputField>
+                    <apex:inputField value="{!Lead.Email}"></apex:inputField>
+                    <apex:inputField value="{!Lead.Title}"></apex:inputField>
+                    <apex:inputField value="{!Lead.Website}"></apex:inputField>
+                    <apex:inputField value="{!Lead.Leadsource}"></apex:inputField>
+                    <apex:inputField value="{!Lead.Status}"></apex:inputField>
+                    <apex:inputField value="{!Lead.Industry}"></apex:inputField>
+                    <apex:inputField value="{!Lead.NumberOfEmployees}"></apex:inputField>
+
+                </apex:pageBlockSection>                
+
+            </apex:pageBlock>
+
+        </apex:sectionHeader>
+
+    </apex:form>
+    
+</apex:page>

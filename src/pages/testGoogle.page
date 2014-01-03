@@ -1,0 +1,7 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <apex:form >
+  <apex:iframe src="https://www.google.co.in/search?q=dig" scrolling="true" id="theIframe"/>
+  </apex:form>
+<!--  <iframe height="600px" id="theIframe" name="theIframe" src="https://www.google.com" width="100%"></iframe> -->
+</apex:page>

@@ -1,0 +1,42 @@
+<apex:page controller="sample" >
+    <apex:form >
+        <apex:variable value="{!0}" var="rowNumber1" />
+        <apex:outputPanel id="panelWithVar">
+            <apex:variable value="{!0}" var="rowNumber1" />
+        </apex:outputPanel>
+        <apex:pageBlock id="table1">
+            <apex:dataTable value="{!list1}" var="a" columnswidth="100px,100px" cellpadding="3" columns="4" border="1" width="1050px" bgcolor="#f5dcef" rowClasses="1" >
+                <apex:column value="{!a.Name}" headerValue="Customer Name" />
+                <apex:column value="{!a.AccountNumber}" headerValue="Number" width="100"/>
+                <apex:column headerClass="Status">
+                    <apex:selectList id="selected_list" value="{!temp}" required="false" size="1">
+                        <apex:selectOption itemvalue="None" itemLabel="--None--"/>
+                        <apex:selectOption itemvalue="complete" itemLabel="complete"/>
+                        <apex:selectOption itemvalue="Open" itemLabel="Open"/>
+                        <apex:actionSupport event="onchange" reRender="Details,panelWithVar,table1,table2" action="{!find}"/>
+                        <apex:param name="p1" value="{!rowNumber1}" assignTo="{!numberOfRowToRemove1}"/>
+                    </apex:selectList>
+                    <apex:variable var="rowNumber3" value="{!rowNumber1 + 1}" />
+                </apex:column>
+            </apex:dataTable>
+        </apex:pageBlock>
+    
+        <apex:pageBlock id="Details">
+            <apex:pageBlockSection >
+                <apex:panelGroup >
+                    <apex:dataTable value="{!list2}" var="a" columnswidth="50px,50px" cellpadding="4" border="1" >
+                        <apex:column value="{!a.Name}" headerValue="Customer Name" width="100"/>
+                        <apex:column value="{!a.AccountNumber}" headerValue="Address" width="100"/>
+                        <apex:column headerClass="Status">
+                            <apex:selectList id="selected_list" value="{!temp}" required="false" size="1">
+                                <apex:selectOption itemvalue="None" itemLabel="--None--"/>
+                                <apex:selectOption itemvalue="complete" itemLabel="complete"/>
+                                <apex:selectOption itemvalue="Open" itemLabel="Open"/>
+                            </apex:selectList>
+                        </apex:column>
+                    </apex:dataTable>
+                </apex:panelGroup>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
